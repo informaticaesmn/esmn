@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Menù con tabs | Html - Css</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+	<style>
+	*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+body{
+    background: #f0f0f0;
+}
+.container{
+    width: 100%;
+    max-width: 700px;
+    margin: auto;
+    margin-top: 100px;
+}
+.lbl-menu{
+    background: #234;
+}
+.lbl-menu label{
+    display: inline-block;
+    padding: 20px;
+    color: #fff;
+    cursor: pointer;
+    transition: all 400ms ease;
+}
+.lbl-menu label:hover{
+    background: #28435d;
+}
+.content{
+    position: relative;
+}
+.content div{
+    position: absolute;
+    line-height: 1.8;
+    transition: all 600ms ease;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.90);
+    padding: 30px;
+    background: #fff;
+    padding-bottom: 40px;
+}
+#radio1,#radio2,#radio3,#radio4{
+    display: none;
+}
+#radio1:checked ~ .tab1,
+#radio2:checked ~ .tab2,
+#radio3:checked ~ .tab3,
+#radio4:checked ~ .tab4
+{
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+}
+.content div:after{
+    position: absolute;
+    content: "";
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid #fff;
+    bottom: 100%;
+    left: 28px;
+}
+.content .tab2:after{
+    left: 122px;
+}
+.content .tab3:after{
+    left: 210px;
+}
+.content .tab4:after{
+    left: 303px;
+}
+	</style>
+    <div class="container">
+        <div class="lbl-menu">
+            <label for="radio1">Inicio</label>
+            <label for="radio2">Servicio</label>
+            <label for="radio3">Blog</label>
+            <label for="radio4">Contacto</label>
+        </div>
+        
+        <div class="content">
+           
+            <input type="radio" name="radio" id="radio1" checked>
+            <div class="tab1">
+                <h2>Inicio</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis similique, expedita officiis enim iusto alias autem doloribus deleniti. Alias mollitia inventore neque dicta fuga, quos quis, facere at quae, laudantium est asperiores illo nulla nisi iure eum, aperiam facilis in.</p>
+            </div>
+            
+            <input type="radio" name="radio" id="radio2">
+            <div class="tab2">
+                <h2>Servicios</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis similique, expedita officiis enim iusto alias autem doloribus deleniti. Alias mollitia inventore neque dicta fuga, quos quis, facere at quae, laudantium est asperiores illo nulla nisi iure eum, aperiam facilis in.</p>
+            </div>
+            
+            <input type="radio" name="radio" id="radio3">
+            <div class="tab3">
+                <h2>Blog</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis similique, expedita officiis enim iusto alias autem doloribus deleniti. Alias mollitia inventore neque dicta fuga, quos quis, facere at quae, laudantium est asperiores illo nulla nisi iure eum, aperiam facilis in.</p>
+            </div>
+            
+            <input type="radio" name="radio" id="radio4">
+            <div class="tab4">
+                <h2>Contacto</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis similique, expedita officiis enim iusto alias autem doloribus deleniti. Alias mollitia inventore neque dicta fuga, quos quis, facere at quae, laudantium est asperiores illo nulla nisi iure eum, aperiam facilis in.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
