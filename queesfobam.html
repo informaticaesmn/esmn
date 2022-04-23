@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box}
+body {font-family: "Lato", sans-serif;}
+
+/* Style the tab */
+.tab {
+  float: left;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+  width: 30%;
+  height: 700px;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  display: block;
+  background-color: inherit;
+  color: black;
+  padding: 22px 16px;
+  width: 100%;
+  border: none;
+  outline: none;
+  text-align: left;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current "tab button" class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  float: left;
+  padding: 0px 12px;
+  border: 1px solid #ccc;
+  width: 70%;
+  border-left: none;
+  height: 700px;
+}
+</style>
+</head>
+<body>
+
+<div >
+    <h2>Que es FoBaM</h2>
+        <h3>¿Qué es FOBAM (FORMACION BASICA DE MUSICA)?</h3>
+
+        <p> Corresponde a la Formación Básica en Música. <br>
+            Se orienta a estudiantes mayores de 13 años con el nivel primario completa y dura cinco años. <br>
+            Pueden ingresar alumnos egresados del nivel niños, o también personas que no tengan experiencia previa.
+        </p>
+        <div>
+            <h3>Preguntas Frecuentes</h3>
+        </div>
+    <div class="tab">
+        <button class="tablinks" onclick="openPlan(event, '530')" id="defaultOpen">Instrumento</button>
+        <button class="tablinks" onclick="openPlan(event, '531')">Dirección coral</button>
+        <button class="tablinks" onclick="openPlan(event, '532')">Canto Lírico</button>
+        <button class="tablinks" onclick="openPlan(event, '533')">Canto Popular</button>
+        <button class="tablinks" onclick="openPlan(event, '534')">Composición</button>
+        <button class="tablinks" onclick="openPlan(event, '535')">Dirección orquestal</button>
+        <button class="tablinks" onclick="openPlan(event, '657')">FoBaM
+             con orientación en instrumento para personas con necesidades educativas diferentes </button>
+    </div>
+    <!-- 
+
+PLANES DE ESTUDIO
+
+Plan 530- Orientación en Instrumento. 
+
+ Plan 531-Orientación en Dirección coral 
+
+ Plan 532-Orientación en Canto (lírico)
+
+ Plan 533-Orientación en Canto popular 
+
+ Plan 534-Orientación en Composición (con medios electroacústicos)
+ 
+ Plan 535-Orientacón en Dirección orquestal
+
+Plan 657 Formación Básica en Música con orientación en instrumento para personas con necesidades educativas diferentes. -->
+
+
+    <div id="530" class="tabcontent">
+        <h3>Plan 530- Orientación en Instrumento</h3>
+        <p>530 is the capital Plan of England.</p>
+    </div>
+
+    <div id="531" class="tabcontent">
+        <h3>Plan 531-Orientación en Dirección coral</h3>
+        <p>531 is the capital of France.</p> 
+    </div>
+
+    <div id="532" class="tabcontent">
+        <h3>Plan 532-Orientación en Canto (lírico)</h3>
+        <p>532 is the capital of Japan.</p>
+    </div>
+    <div id="533" class="tabcontent">
+        <h3>Plan 533-Orientación en Canto popular</h3>
+        <p>533 is the capital of Japan.</p>
+    </div>
+    <div id="534" class="tabcontent">
+        <h3>Plan 534-Orientación en Composición (con medios electroacústicos)</h3>
+        <p>534 is the capital of France.</p> 
+    </div>
+    <div id="535" class="tabcontent">
+        <h3>Plan 535-Orientacón en Dirección orquestal</h3>
+        <p>657 is the capital of Japan.</p>
+    </div>
+    <div id="657" class="tabcontent">
+        <h3>Plan 657 FoBaM con orientación en instrumento para personas con necesidades educativas diferentes</h3>
+        <p>657 is the capital of Japan.</p>
+    </div>
+
+</div>
+<script>
+function openPlan(evt, PlanName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(PlanName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
+   
+</body>
+</html> 
