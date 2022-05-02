@@ -13,17 +13,17 @@
 
 <body>
 
-<div >
+  <div >
     <h2>Propuesta Academica</h2>
-        <p>El nivel Terciario de la Escuela Superior de Musica de Neuquúen tiene por objeto,
-           Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, 
-            laboriosam animi inventore quo sapiente quisquam eaque eveniet? Accusamus quia iure quae
-             aperiam hic? Id aspernatur minima architecto voluptates minus natus.
-        </p>
-        <div>
-            <h3>Planes de Estudio</h3>
-            <h4>Nivel Terciario</h4>
-        </div>
+    <p>El nivel Terciario de la Escuela Superior de Musica de Neuquúen tiene por objeto,
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, 
+        laboriosam animi inventore quo sapiente quisquam eaque eveniet? Accusamus quia iure quae
+            aperiam hic? Id aspernatur minima architecto voluptates minus natus.
+    </p>
+    <div>
+        <h3>Planes de Estudio</h3>
+        <h4>Nivel Terciario</h4>
+    </div>
     <div class="tab">
         <button class="tablinks" onclick="openPlan(event, '662')" id="defaultOpen">Plan 662 Profesorado de Música</button>
         <button class="tablinks" onclick="openPlan(event, '531')">Dirección coral</button>
@@ -66,24 +66,24 @@
         <p>657 is the capital of Japan.</p>
     </div>
 
-</div>
+  </div>
 <script>
-function openPlan(evt, PlanName) {
-  var i, tabcontent, tablinks;
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
-  tablinks = document.getElementsByClassName("tablinks");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
-  }
-  document.getElementById(PlanName).style.display = "block";
-  evt.currentTarget.className += " active";
-}
+    function openPlan(evt, PlanName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(PlanName).style.display = "block";
+    evt.currentTarget.className += " active";
+    }
 
-// Get the element with id="defaultOpen" and click on it
-document.getElementById("defaultOpen").click();
+    // Get the element with id="defaultOpen" and click on it
+    document.getElementById("defaultOpen").click();
 </script>
    
 </body>
