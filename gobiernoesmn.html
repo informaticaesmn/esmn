@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es-ar">
+<head>
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Planes Terciario ESMN-Pages</title>
+    <link rel="shortcut icon" href="/img/logoesmn.svg" type="image/x-icon">
+</head>
+
+<body>
+
+  <div >
+    <!--<h2>Propuesta Academica</h2>-->
+    <p>La ESMN perteneciente a la red INFD tiene un sistema de gobierno tripartito colegiado que se basa..... Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, 
+        laboriosam animi inventore quo sapiente quisquam eaque eveniet? Accusamus quia iure quae
+            aperiam hic? Id aspernatur minima architecto voluptates minus natus.
+    </p>
+    <div>
+        <h3>Organos de Gobierno</h3>
+        
+    </div>
+    <div class="tab">
+        <button class="tablinks" onclick="openPlan(event, 'ED')" id="defaultOpen">Equipo Directivo</button>
+        <button class="tablinks" onclick="openPlan(event, 'CPI')">CPI - Consejo de Políticas Institucionales</button>
+        <button class="tablinks" onclick="openPlan(event, 'CA')">CA - Consejo Académico</button>
+        <button class="tablinks" onclick="openPlan(event, 'CE')">CE - Centro de Estudiantes</button>
+        
+    </div>
+
+    <div id="ED" class="tabcontent">
+        <h3>Equipo Directivo</h3>
+            <h4>Rector</h4>
+            <p>Prof. Victor Zuccoli</p>
+            <h4>Vicerrectores</h4>
+            <p>Prof. Ana Belen Gonzaga</p>
+            <p>Prof. Claudio Contreras</p>
+            <p>Prof. Sebastian Iuri</p>
+            <h4>Secretario Académico</h4>
+            <p>Prof. Pablo Busina</p>
+            <br>
+       <h4>Periodo 2019-2022</h4>
+    </div>
+
+    <div id="CPI" class="tabcontent">
+        <h3>CPI - Consejo de Políticas Institucionales</h3>
+        <h4>Representantes Claustro Estudiatil</h4>
+        <p>Jeremias Sartori</p>
+        <p>Milena Maglione</p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <h4>Representantes Claustro Docente</h4>
+        <p>Graciela Bellino Novita</p>
+        <p>Gerardo León</p>
+        <p>Genaro Villar</p>
+        <p>Paula Tricarico</p>
+        <p>Fabian Tapia</p>
+        <p>Camila Percu</p>
+        <h4>Representantes Claustro TAE</h4>
+        <h5>TAE: Trabajadores de Apoyo Educativo</h5>
+        <p>Laura Pino</p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <h4>Representantes Claustro Graduados</h4>
+        <p>Carina</p>
+        <p></p>
+        <p></p>
+        <p></p>
+        
+        <br>
+       <h4>Periodo 2021-2022</h4>
+    </div>
+
+    <div id="CA" class="tabcontent">
+        <h3>CA - Consejo Académico</h3>
+        <p>formado por quienes ocupan las diferentes coordinaciones y jefaturas que conforman la institución</p>
+       <h4>Coordinacion Nivel FoBaM</h4>
+        <p>Prof. Mauricio Lusardi</p>
+        <p>Prof. Cecilia Ruete</p> 
+        <p>Prof. Fabio Balvarrey</p>
+        <h4>Coordinacion Nivel Niñes</h4>
+        <p>Prof. Silvina Covicci</p>
+        <p>Prof. Cecilia Díaz</p>
+        <br>
+        <h4>Periodo 2019-2022</h4>
+    </div>
+    <div id="CE" class="tabcontent">
+        <h3>Centro de Estudiantes</h3>
+        <p>El Centro de Estudiantes se conforma a partir de un sistema democrático con un sistema de votación en el que participan ... Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto vel aliquam voluptates maxime neque veniam vero temporibus perspiciatis eius, eligendi corporis facilis, harum aspernatur repellat ratione, tenetur id. Non, expedita.</p>
+        <h4>Integrantes</h4>
+        <br>
+        <h4>Periodo 2019-2022</h4>
+
+    </div>
+  
+  </div>
+<script>
+    function openPlan(evt, PlanName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(PlanName).style.display = "block";
+    evt.currentTarget.className += " active";
+    }
+
+    // Get the element with id="defaultOpen" and click on it
+    document.getElementById("defaultOpen").click();
+</script>
+   
+</body>
+</html> 
