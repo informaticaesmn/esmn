@@ -1,13 +1,19 @@
 * {box-sizing: border-box}
-body {font-family: "Lato", sans-serif;}
+body {
+  font-family: "Lato", sans-serif;
+  /* background-image: url(/img/FVerdeV2.jpg);
+  background-attachment: fixed;
+  background-size:cover; */
+  
+}
 
 /* Style the tab */
 .tab {
   float: left;
   border: 1px solid #ccc;
-  background-color: #f1f1f1;
+  background-color: #f1f1f199;
   width:20%;
-  height: 800px;
+  height:max-content;
 }
 
 /* Style the buttons inside the tab */
@@ -39,8 +45,11 @@ body {font-family: "Lato", sans-serif;}
 .tabcontent {
   float: left;
   padding: 0px 12px;
-  border: 1px solid #ccc;
+  /* border: 1px solid #ccc; */
   width: 70%;
   border-left: none;
-  height: 800px;
+  height:max-content;
+
+  background-color: #eeeeee99;
+  
 }
