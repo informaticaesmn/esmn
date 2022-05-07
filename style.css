@@ -1,4 +1,4 @@
-* {box-sizing: border-box}
+/* * {box-sizing: border-box} */
 body {
   font-family: "Lato", sans-serif;
   /* background-image: url(/img/FVerdeV2.jpg);
@@ -50,7 +50,17 @@ body {
   border-left: none;
   height:max-content;
   background-color: #eeeeee99;
+  overflow-y: scroll
   
+}
+.tabcorto {
+  height: 440px;
+}
+.tabmedio {
+  height: 750px;
+}
+.tablargo {
+  height: 1100px;
 }
 .tabderecha {
   float: left;
