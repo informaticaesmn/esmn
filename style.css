@@ -10,7 +10,7 @@ body {
 /* Style the tab */
 .tab {
   float: left;
-  border: 1px solid #ccc;
+  border: none;
   background-color: #f1f1f199;
   width:20%;
   height:max-content;
@@ -50,7 +50,7 @@ body {
   border-left: none;
   height:max-content;
   background-color: #eeeeee99;
-  overflow-y: scroll
+  overflow-y:auto
   
 }
 .tabcorto {
