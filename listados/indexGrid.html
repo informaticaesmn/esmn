@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-ar">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Listado desde Google Sheets</title>
+  <link rel="shortcut icon" href="img/logoesmn.svg" type="image/x-icon">
   <link href="https://unpkg.com/gridjs/dist/theme/mermaid.min.css" rel="stylesheet" />
   <style>
     body {
@@ -64,7 +66,7 @@
           columns: keys,
           data: data.map(obj => keys.map(k => obj[k])),
           search: true,
-          pagination: { limit: 20 },
+          pagination: { limit: 15 },
           sort: true,
           language: {
             search: { placeholder: 'Buscar...' },
