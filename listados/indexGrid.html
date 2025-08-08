@@ -58,11 +58,6 @@
     100% { transform: rotate(360deg); } 
   }
 
-  /* Ocultar la tabla hasta que se carguen los datos */
-  #dataTable_wrapper { 
-    display: none; 
-  }
-
   /* Texto pequeño para pie de tabla */
   .peque {
   font-size: 0.75em;   /* más chico*/
@@ -74,22 +69,27 @@
 <body>
 
   <h2>Listado de Inscripciones</h2>
-  <div id="cargando" class="cargando"></div>
-  <div id="wrapper"></div>
+  <div id="cargando" class="cargando">
+    <span style="position:absolute;left:-9999px; font-size: 0.9rem; color: #555;">Cargando datos...</span>
+  </div>
+  <div style="overflow-x: auto;">
+    <div id="wrapper"></div>
+  </div>
 
   <script src="https://unpkg.com/gridjs/dist/gridjs.umd.js"></script>
   <script>
     fetch("https://script.google.com/macros/s/AKfycbx6Qon-rHNbnKfgpreeJLkWzMMiK9VJRdWW-owcSB9inc_oSPnalPMgyCXl4ltAxtnXxw/exec")  // Reemplazá con tu URL real
       .then(res => res.json())
       .then(data => {
-        if (!data || data.length === 0) {
+        if (!data || data.length === 0) {// Si no hay datos
           document.getElementById("wrapper").innerText = "No hay datos para mostrar.";
+          document.getElementById("cargando").style.display = 'none'; // Oculta el loader
           return;
         }
 
         const keys = Object.keys(data[0]);
 
-        new gridjs.Grid({
+        const grid = new gridjs.Grid({
           columns: keys,
           data: data.map(obj => keys.map(k => obj[k])),
           search: true,
@@ -104,10 +104,16 @@
               results: () => 'resultados'
             }
           }
-        }).render(document.getElementById("wrapper"));
+        });
+        grid.render(document.getElementById("wrapper"));
+        document.getElementById("cargando").style.display = 'none'; // Oculta el loader
+        grid.on('ready', () => {
+          document.getElementById("wrapper").style.display = 'block'; // Muestra la tabla
+        });
       })
       .catch(err => {
         document.getElementById("wrapper").innerText = "Error cargando los datos.";
+        document.getElementById("cargando").style.display = 'none'; // Oculta el loader en caso de error
         console.error(err);
       });
   </script>
