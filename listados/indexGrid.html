@@ -42,12 +42,39 @@
     .gridjs-pagination {
     font-size: 0.85rem;
     }
+     /* Loader de "cargando..." */
+  .cargando { 
+    border: 8px solid #f3f3f3; 
+    border-radius: 50%; 
+    border-top: 8px solid #3498db; 
+    width: 60px; 
+    height: 60px; 
+    animation: spin 2s linear infinite; 
+    margin: 50px auto; 
+  }
 
+  @keyframes spin { 
+    0% { transform: rotate(0deg); } 
+    100% { transform: rotate(360deg); } 
+  }
+
+  /* Ocultar la tabla hasta que se carguen los datos */
+  #dataTable_wrapper { 
+    display: none; 
+  }
+
+  /* Texto pequeño para pie de tabla */
+  .peque {
+  font-size: 0.75em;   /* más chico*/
+  color: #666;         /* opcional: gris suave */
+  margin-top: 8px;
+  }
   </style>
 </head>
 <body>
 
   <h2>Listado de Inscripciones</h2>
+  <div id="cargando" class="cargando"></div>
   <div id="wrapper"></div>
 
   <script src="https://unpkg.com/gridjs/dist/gridjs.umd.js"></script>
