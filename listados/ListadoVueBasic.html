@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Listado Planillas con Vue</title>
+<script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+<style>
+  body { font-family: Arial; margin: 20px; }
+  table { border-collapse: collapse; width: 100%; }
+  th, td { border: 1px solid #ccc; padding: 6px 10px; text-align: left; }
+  th { background: #f4f4f4; }
+</style>
+</head>
+<body>
+
+<div id="app">
+  <h1>Listado de Planillas</h1>
+  <input v-model="filtro" placeholder="Filtrar por nombre o carpeta">
+
+  <table>
+    <thead>
+      <tr>
+        <th>Carpeta</th>
+        <th>Planilla</th>
+        <th>ID</th>
+        <th>Enlace</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="p in filtradas" :key="p.id">
+        <td>{{ p.carpeta }}</td>
+        <td>{{ p.nombre }}</td>
+        <td>{{ p.id }}</td>
+        <td><a :href="p.link" target="_blank">Abrir</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<script>
+const { createApp } = Vue;
+
+createApp({
+  data() {
+    return {
+      planillas: [],
+      filtro: ""
+    };
+  },
+  computed: {
+    filtradas() {
+      return this.planillas.filter(p =>
+        p.carpeta.toLowerCase().includes(this.filtro.toLowerCase()) ||
+        p.nombre.toLowerCase().includes(this.filtro.toLowerCase())
+      );
+    }
+  },
+  mounted() {
+    fetch('https://script.google.com/macros/s/AKfycbzMN6x8dZJXe6CaCje2qZDgQcbjVhtflL-xA6HOqTwqlft746J3TF7FGUt37ttFmhTVSA/exec')
+      .then(r => r.json())
+      .then(data => this.planillas = data);
+  }
+}).mount('#app');
+</script>
+
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Planillas por Carpeta</title>
+  <!-- Vue 3 vía CDN -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+  <!-- TailwindCSS vía CDN (para estilos rápidos) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-6">
+
+<div id="app" class="max-w-2xl mx-auto">
+  <h1 class="text-2xl font-bold mb-4">Planillas</h1>
+  
+  <div v-for="(grupo, index) in planillasAgrupadas" :key="index" class="mb-4 bg-white shadow rounded">
+    <!-- Cabecera del acordeón -->
+    <button 
+      @click="toggleGrupo(index)" 
+      class="w-full text-left px-4 py-2 bg-blue-500 text-white rounded-t hover:bg-blue-600"
+    >
+      {{ grupo.carpeta }}
+    </button>
+
+    <!-- Contenido -->
+    <div v-show="grupo.abierto" class="p-4 space-y-2">
+      <a 
+        v-for="planilla in grupo.planillas" 
+        :key="planilla.id"
+        :href="'https://docs.google.com/spreadsheets/d/' + planilla.id"
+        target="_blank"
+        class="block px-3 py-2 bg-gray-200 hover:bg-gray-300 rounded"
+      >
+        📄 {{ planilla.nombre }}
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+const app = Vue.createApp({
+  data() {
+    return {
+      planillasAgrupadas: []
+    }
+  },
+  methods: {
+    async cargarDatos() {
+      const respuesta = await fetch('https://script.google.com/macros/s/AKfycbzMN6x8dZJXe6CaCje2qZDgQcbjVhtflL-xA6HOqTwqlft746J3TF7FGUt37ttFmhTVSA/exec');
+      const datos = await respuesta.json();
+      if (!Array.isArray(datos)) {
+        console.error("Los datos no son un array válido");
+        return;
+      }
+      if (datos.length === 0) {
+        console.warn("No hay datos para mostrar");
+        return;
+      }
+      // Agrupar por carpeta
+      const grupos = {};
+      datos.forEach(d => {
+        if (!grupos[d.carpeta]) grupos[d.carpeta] = [];
+        grupos[d.carpeta].push({ nombre: d.nombre, id: d.id });
+      });
+      // Convertir en array y añadir propiedad "abierto"
+      this.planillasAgrupadas = Object.keys(grupos).map(carpeta => ({
+        carpeta,
+        planillas: grupos[carpeta],
+        abierto: false
+      }));
+    },
+    toggleGrupo(index) {
+      this.planillasAgrupadas[index].abierto = !this.planillasAgrupadas[index].abierto;
+    }
+  },
+  mounted() {
+    this.cargarDatos();
+  }
+});
+app.mount('#app');
+</script>
+
+</body>
+</html>

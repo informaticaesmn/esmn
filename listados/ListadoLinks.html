@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Listado de Planillas</title>
+</head>
+<body>
+<div id="contenedor"></div>
+
+<script>
+fetch('https://script.google.com/macros/s/AKfycbzMN6x8dZJXe6CaCje2qZDgQcbjVhtflL-xA6HOqTwqlft746J3TF7FGUt37ttFmhTVSA/exec')
+  .then(r => r.json())
+  .then(data => {
+    const cont = document.getElementById('contenedor');
+    data.forEach(item => {
+      const a = document.createElement('a');
+      a.href = item.link;
+      a.textContent = `${item.carpeta} - ${item.nombre}`;
+      a.target = "_blank";
+      cont.appendChild(a);
+      cont.appendChild(document.createElement('br'));
+    });
+  });
+</script>
+</body>
+</html>
