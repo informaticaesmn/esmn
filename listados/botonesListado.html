@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Botones de Listados</title>
+  <!-- Vue 3 -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+  <!-- W3.CSS -->
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <style>
+    /* Ajustes extra para mejorar en pantallas pequeñas */
+    .boton-listado {
+      margin-bottom: 8px;
+    }
+    @media (max-width: 600px) {
+      .boton-listado {
+        width: 100%;
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body class="w3-light-grey w3-padding">
+
+<div id="app" class="w3-content" style="max-width:600px">
+  <h2 class="w3-text-black w3-margin-bottom">Listados disponibles</h2>
+  
+  <div class="w3-row-padding">
+    <div v-for="(item, index) in archivos" :key="index" class="w3-col s12 m6">
+      <a 
+        :href="item.archivo" 
+        class="w3-button w3-blue w3-round-large w3-block boton-listado"
+        target="_blank"
+      >
+        📄 {{ item.nombre }}
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+const app = Vue.createApp({
+  data() {
+    return {
+      // Simulación de datos; en producción esto puede venir de un fetch a un JSON
+      archivos: [
+        { nombre: "Listado Vue W3", archivo: "ListadoVueW3.html" },
+        { nombre: "Listado Vue Bulma", archivo: "ListadoVueBulma.html" },
+        { nombre: "Listado Vue Bootstrap 5", archivo: "ListadoVueBootstrap5.html" },
+        { nombre: "Listado Vue Basic", archivo: "ListadoVueBasic.html" },
+        { nombre: "Index Grid", archivo: "indexGrid.html" },
+        { nombre: "Listado Links", archivo: "ListadoLinks.html" }
+      ]
+    }
+  }
+});
+app.mount('#app');
+</script>
+
+</body>
+</html>
