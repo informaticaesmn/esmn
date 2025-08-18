@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es-ar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RAC - ESMN - Sistema interno de gestión educativa</title>
+  <!-- W3.CSS -->
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --brand: #009688;          /* Verde agua institucional */
+      --brand-dark: #00796B;     /* Hover/botón */
+      --light-bg: #f5f5f5;
+      --text-dark: #333;
+    }
+    body {
+        margin: 0;
+        height: 100vh;
+        background: linear-gradient(135deg, #009688, #4db6ac, #7a7a7a);
+        background-attachment: fixed;
+    }
+
+    /* Barra superior */
+    .topbar {
+      background: var(--brand);
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 16px;
+    }
+    .topbar nav a {
+      color: #fff;
+      margin: 0 8px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .topbar nav a:hover { text-decoration: underline; }
+
+    /* Card central */
+    .login-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex: 1;
+      padding: 20px;
+    }
+    .login-card {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 900px;
+      width: 100%;
+      box-shadow: 0 6px 20px rgba(0,0,0,.2);
+    }
+    .login-left, .login-right {
+      flex: 1 1 300px;
+      padding: 30px;
+    }
+    .login-left {
+      background: #fafafa;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+    }
+    .login-left h2 {
+      font-size: 1.8rem;
+      margin-bottom: 12px;
+      color: var(--text-dark);
+    }
+    .login-left img { max-width: 160px; margin: 12px auto; }
+    .login-left small { color: #666; }
+
+    .login-right {
+      background: var(--brand);
+      color: #fff;
+    }
+    .login-right label { color: #fff; font-weight: 500; }
+    .login-right .w3-input {
+      border-radius: 6px;
+      margin-bottom: 16px;
+    }
+    .login-right .w3-check { margin-right: 6px; }
+    .login-btn {
+      width: 100%;
+      border-radius: 8px;
+      background: var(--brand-dark);
+      transition: .2s;
+    }
+    .login-btn:hover { background: #004D40; }
+
+    /* Footer */
+    footer {
+      background: #eee;
+      padding: 12px;
+      text-align: center;
+      font-size: .9rem;
+      color: #555;
+    }
+    footer img { height: 30px; margin: 0 8px; vertical-align: middle; }
+  </style>
+</head>
+<body>
+  <!-- Barra superior -->
+  <div class="topbar">
+    <div class="brand">
+      <nav>
+        <a href="https://esm-nqn.infd.edu.ar/sitio/">Escuela Superior de Música de Neuquén</a></div>
+    </nav>
+  </div>
+
+  <!-- Contenedor principal -->
+  <div id="app" class="login-wrapper">
+    <div class="login-card">
+      <!-- Columna izquierda -->
+      <div class="login-left">
+        <h2>RAC - ESMN</h2>
+        <img src="../img/logoesmn.svg" alt="Logo ESMN" />
+        <small style="margin-top:16px; font-size:.85rem;">Sistema interno de gestión educativa</small>
+      </div>
+      <!-- Columna derecha -->
+      <div class="login-right">
+        <h3 style="margin-bottom:16px;">Acceso Estudiantes</h3>
+        <form @submit.prevent="login">
+          <label for="email">Email</label>
+          <input v-model="user" id="email" class="w3-input w3-hover-light-gray" type="text" required/>
+
+          <label for="clave">Clave</label>
+          <input v-model="password" id="clave" class="w3-input w3-hover-light-gray" type="password" required />
+
+          <label class="w3-small">
+            <input class="w3-check w3-hover-light-gray" type="checkbox" v-model="remember" /> No me olvides
+          </label>
+
+          <button class="w3-button login-btn w3-margin-top" >Ingresar</button>
+          <p class="w3-small w3-center w3-margin-top">
+            <a href="#" style="color:#fff;">¿Olvidaste tus datos?</a>
+            <a href="#" style="color:#fff; margin-left:8px;">¿No tenés cuenta?</a>
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    --- Sistema en contrucción v0.1 ---<br>
+    <img src="../img/logo1c.png" alt="Logo Escuela" />
+    <img src="../img/infd gris.png" alt="INFD" />
+  </footer>
+
+  <!-- Vue -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+  <script>
+    const { createApp } = Vue;
+    createApp({
+      data() {
+        return { user: '', password: '', remember: false };
+      },
+      methods: {
+        login() {
+          alert(`Login con email: ${this.user}`);
+        }
+      }
+    }).mount('#app');
+  </script>
+</body>
+</html>
