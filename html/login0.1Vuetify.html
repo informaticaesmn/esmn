@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login con Vuetify</title>
+
+  <!-- Vuetify CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@3.7.2/dist/vuetify.min.css" rel="stylesheet">
+  <!-- Google Fonts (Roboto + Material Icons) -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@7.x/css/materialdesignicons.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #009688, #7a7a7a);
+      font-family: 'Roboto', sans-serif;
+    }
+    .login-card {
+      width: 380px;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .login-header {
+      background-color: teal;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <v-app>
+      <v-main>
+        <v-container class="d-flex justify-center align-center" style="height: 100vh;">
+          <v-card class="login-card" elevation="8">
+            <div class="login-header">
+              <h2>RAC - ESMN</h2>
+              <p class="text-caption">Sistema interno de gestión educativa</p>
+            </div>
+
+            <v-card-text>
+              <h3 class="text-h6 text-center mb-4">Acceso Estudiantes</h3>
+
+              <v-text-field
+                v-model="user"
+                label="Email"
+                prepend-inner-icon="mdi-account"
+                type="email"
+                variant="outlined"
+                density="comfortable"
+              ></v-text-field>
+
+              <v-text-field
+                v-model="password"
+                label="Contraseña"
+                prepend-inner-icon="mdi-lock"
+                type="password"
+                variant="outlined"
+                density="comfortable"
+              ></v-text-field>
+
+              <v-checkbox
+                v-model="remember"
+                label="No me olvides"
+                hide-details
+              ></v-checkbox>
+
+              <v-btn
+                block
+                color="primary"
+                class="mt-4"
+                @click="login"
+              >
+                Ingresar
+              </v-btn>
+
+              <div class="text-center mt-2 text-caption">
+                <a href="#">¿Olvidaste tu contraseña?</a> | 
+                <a href="#">¿No tienes cuenta?</a>
+              </div>
+            </v-card-text>
+          </v-card>
+        </v-container>
+      </v-main>
+    </v-app>
+  </div>
+
+  <!-- Vue 3 -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <!-- Vuetify JS -->
+  <script src="https://cdn.jsdelivr.net/npm/vuetify@3.7.2/dist/vuetify.min.js"></script>
+
+  <script>
+    const { createApp } = Vue
+    const { createVuetify } = Vuetify
+
+    const vuetify = createVuetify()
+
+    const app = createApp({
+      data() {
+        return {
+          user: '',
+          password: '',
+          remember: false
+        }
+      },
+      methods: {
+        login() {
+          alert(`Email: ${this.user}\nClave: ${this.password}\nRecordarme: ${this.remember}`)
+        }
+      }
+    })
+
+    app.use(vuetify)
+    app.mount('#app')
+  </script>
+</body>
+</html>

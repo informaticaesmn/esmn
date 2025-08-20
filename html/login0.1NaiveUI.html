@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Naive UI</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="https://unpkg.com/naive-ui"></script>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #009688, #7a7a7a);
+      font-family: 'Open Sans', sans-serif;
+    }
+    .login-card {
+      width: 350px;
+      padding: 2rem;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <div class="login-card">
+      <n-h2 style="text-align:center">Acceso Estudiantes</n-h2>
+      <n-input v-model:value="user" type="text" round placeholder="Email" clearable>
+        <template #prefix>
+          <i class="fa-solid fa-user"></i>
+        </template>
+      </n-input>
+      <br>
+      <n-input v-model:value="password" type="password" round placeholder="Contraseña" show-password-on="click">
+        <template #prefix>
+          <i class="fa-solid fa-lock"></i>
+        </template>
+      </n-input>
+      <br>
+      <n-checkbox v-model:checked="remember">No me olvides</n-checkbox>
+      <br><br>
+      <n-button type="primary" block round @click="login">Ingresar</n-button>
+      <div style="text-align:center; margin-top:10px; font-size:0.9em">
+        <a href="#">¿Olvidaste tu contraseña?</a> | 
+        <a href="#">¿No tienes cuenta?</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FontAwesome para íconos -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+
+  <script>
+    const { createApp } = Vue
+    const app = createApp({
+      data() {
+        return {
+          user: '',
+          password: '',
+          remember: false
+        }
+      },
+      methods: {
+        login() {
+          alert(`Email: ${this.user}\nClave: ${this.password}\nRecordarme: ${this.remember}`)
+        }
+      }
+    })
+    app.use(naive)
+    app.mount('#app')
+  </script>
+</body>
+</html>
